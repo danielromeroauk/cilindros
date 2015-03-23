@@ -1,0 +1,17 @@
+{
+  "name": "Cilindros",
+  "version": "0.0.1",
+  "description": "Paquetes del frontend para el proyecto Cilindros.",
+  "moduleType": [
+    "globals"
+  ],
+  "authors": [
+    "Daniel Guillermo Romero Gelvez"
+  ],
+  "license": "MIT",
+  "homepage": "cilindros.app",
+  "dependencies": {
+    "bootstrap": "~3.3.2",
+    "bootstrap-material-design": "~0.2.2"
+  }
+}
