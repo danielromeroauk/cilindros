@@ -1,10 +1,9 @@
 <?php namespace App\Http\Controllers;
 
-use App\Http\Requests;
+use App\Http\Requests\CreateTerceroRequest;
 use App\Http\Controllers\Controller;
 
 use App\Tercero;
-use Illuminate\Http\Request;
 
 class TerceroController extends Controller {
 
@@ -15,7 +14,9 @@ class TerceroController extends Controller {
 	 */
 	public function index()
 	{
-		//
+		$terceros = Tercero::orderBy('nombre', 'asc')->paginate();
+
+        return view('terceros.index', compact('terceros'));
 	}
 
 	/**
@@ -33,11 +34,11 @@ class TerceroController extends Controller {
 	 *
 	 * @return Response
 	 */
-	public function store(Request $request)
+	public function store(CreateTerceroRequest $request)
 	{
 		$tercero = Tercero::create($request->all());
 
-        return "El tercero $tercero->nombre se ha creado en la base de datos.";
+        return redirect('terceros');
 	}
 
 	/**
