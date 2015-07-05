@@ -16,13 +16,19 @@ class CreateTercerosTable extends Migration {
 		{
 			$table->increments('id');
 			$table->string('nit', 50)->unique();
-			$table->string('nombre');
-			$table->enum('rol', ['cliente', 'proveedor', 'yo']);
-			$table->string('direccion');
-			$table->string('telefono', 100);
+			$table->string('nombre', 100);
+			$table->enum('rol', ['cliente', 'proveedor']);
+			$table->string('direccion', 100);
+			$table->string('telefono', 50);
 			$table->string('email')->nullable();
 			$table->string('notas', 1000)->nullable();
+			$table->integer('user_id')->unsigned();
 			$table->timestamps();
+
+			$table->foreign('user_id')
+				->references('id')->on('users')
+				->onUpdate('CASCADE')
+				->onDelete('NO ACTION');
 		});
 	}
 

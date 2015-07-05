@@ -18,13 +18,20 @@ class CreateCilindrosTable extends Migration {
 			$table->string('codigo', 100)->unique();
 			$table->string('tipo', 100);
 			$table->integer('tercero_id')->unsigned();
-			$table->enum('estado', ['vacío', 'prestado', 'llenado', 'lleno', 'con propietario']);
+			$table->string('imagen', 255);
+			$table->string('notas', 1000)->nullable();
+			$table->integer('user_id')->unsigned();
 			$table->timestamps();
 
 			$table->foreign('tercero_id')
 				->references('id')->on('terceros')
 				->onUpdate('CASCADE')
-				->onDelete('CASCADE');
+				->onDelete('NO ACTION');
+
+			$table->foreign('user_id')
+				->references('id')->on('users')
+				->onUpdate('CASCADE')
+				->onDelete('NO ACTION');
 		});
 	}
 
