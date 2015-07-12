@@ -2,9 +2,9 @@
 
 use Illuminate\Database\Eloquent\Model;
 
-class Cilindro extends Model {
+class Movimiento extends Model {
 
-	protected $table = 'cilindros';
+	protected $table = 'movimientos';
 
     public function user()
     {
@@ -16,9 +16,9 @@ class Cilindro extends Model {
         return $this->belongsTo('App\Tercero');
     }
 
-    public function movimientos()
+    public function cilindro()
     {
-        return $this->hasMany('App\Movimiento');
+        return $this->belongsTo('App\Cilindro');
     }
 
-} #Cilindro
+} #Movimiento
