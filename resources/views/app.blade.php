@@ -35,7 +35,9 @@
 
 			<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 				<ul class="nav navbar-nav">
-					<li><a href="{!! url('/') !!}">Inicio</a></li>
+					<li><a href="{!! url('home') !!}">Inicio</a></li>
+					<li><a href="{!! url('terceros/create') !!}">Crear tercero</a></li>
+					<li><a href="{!! url('terceros') !!}">Lista de terceros</a></li>
 				</ul>
 
 				<ul class="nav navbar-nav navbar-right">
@@ -59,11 +61,11 @@
 	    @yield('content')
     </div>
 
-	{!! Html::script('bower_components/jquery/dist/jquery.min.js') !!}	
-	{!! Html::script('bower_components/bootstrap/dist/js/bootstrap.min.js') !!}	
-	{!! Html::script('bower_components/bootstrap-material-design/dist/js/ripples.min.js') !!}	
-	{!! Html::script('bower_components/bootstrap-material-design/dist/js/material.min.js') !!}	
-	
+	{!! Html::script('bower_components/jquery/dist/jquery.min.js') !!}
+	{!! Html::script('bower_components/bootstrap/dist/js/bootstrap.min.js') !!}
+	{!! Html::script('bower_components/bootstrap-material-design/dist/js/ripples.min.js') !!}
+	{!! Html::script('bower_components/bootstrap-material-design/dist/js/material.min.js') !!}
+
 	<script type="text/javascript">
 		$(document).on('ready', function(){
 			$.material.init();

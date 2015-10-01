@@ -4,6 +4,7 @@ use App\Http\Requests\CreateTerceroRequest;
 use App\Http\Controllers\Controller;
 
 use App\Tercero;
+use Illuminate\Support\Facades\Auth;
 
 class TerceroController extends Controller {
 
@@ -36,7 +37,9 @@ class TerceroController extends Controller {
 	 */
 	public function store(CreateTerceroRequest $request)
 	{
-		$tercero = Tercero::create($request->all());
+		$tercero = new Tercero($request->all());
+        $tercero->user_id = Auth::user()->id;
+        $tercero->save();
 
         return redirect('terceros');
 	}
